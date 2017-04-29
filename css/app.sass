@@ -1,0 +1,54 @@
+a
+    text-decoration: none
+
+$colors
+    brand: green
+    light_gray: #d5d5d5
+
+$padding
+    tiny: 5px
+    small: 10px
+    default: 15px
+    medium: 20px
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+
+body
+    font: 15px/1.5em Montserrat, Arial, sans-serif
+
+#app
+    padding: $padding.default
+
+#footer
+    position: fixed
+    bottom: $padding.default
+    right: $padding.default
+
+.nav
+    position: fixed
+    top: $padding.medium
+    left: $padding.medium
+    width: 250px
+    h3
+        margin-bottom: $padding.medium
+    z-index: 100
+    .legend
+        z-index: 100
+svg
+    z-index: 200
+
+.legend-entry
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin-bottom: $padding.default
+
+    .swatch
+        height: 25px
+        width: 25px
+        border-radius: 25px
+        margin-right: $padding.default

@@ -1,0 +1,17 @@
+{
+  "name": "eth-dish",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "coffee server.coffee",
+    "restart": "pm2 restart eth-dish:app || pm2 start --name eth-dish:app server.coffee",
+    "bounce-js": "metaserve --bounce /js/app.js",
+    "bounce-css": "metaserve --bounce /css/app.css",
+    "bounce": "npm run bounce-js && npm run bounce-css"
+  },
+  "dependencies": {
+    "polar": "0.3.x",
+    "somata": "^0.2.6",
+    "somata-socketio": "0.0.x",
+    "somata-socketio-client": "git+ssh://git@github.com/somata/somata-socketio-client.git"
+  }
+}
