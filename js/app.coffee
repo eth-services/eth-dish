@@ -54,7 +54,7 @@ pushTransaction = (tx, Dish) ->
     else
         if !(contractAddress in Dish.node_ids)
             entities.nodes.push {id: contractAddress, type: 'contracts', value: 10}
-        entities.links.push {source: hash, target: to: contractAddress, value}
+        entities.links.push {source: hash, target: contractAddress, value}
 
     entities.links.push {source: from, target: hash, value}
     entities.links.push {source: hash, target: blockHash, value: 4}
