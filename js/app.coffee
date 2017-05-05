@@ -41,7 +41,7 @@ pushTransaction = (tx, Dish) ->
     {from, to, hash, value, contractAddress, blockHash} = tx
     entities = {nodes: [], links: []}
     if !(blockHash in Dish.node_ids)
-        entities.nodes.push {id: blockHash, type: 'blocks', value: 25}
+        entities.nodes.push {id: blockHash, type: 'blocks', value: 35}
     if !(from in Dish.node_ids)
         entities.nodes.push {id: from, type: 'accounts', value: 10}
 
@@ -85,7 +85,7 @@ App = React.createClass
             somata.subscribe 'eth-mirror:events', 'blocks', (event) ->
                 # console.log 'new block:', event
                 Dispatcher.blocks$.emit event
-                new_entities = nodes: [{id: event.hash, type: 'blocks', value: 10}]
+                new_entities = nodes: [{id: event.hash, type: 'blocks', value: 35}]
                 if event.parentHash in MyDish.node_ids
                     new_entities.links = [{source: event.hash, target: event.parentHash, value: 10}]
 
@@ -99,7 +99,7 @@ App = React.createClass
                 # console.log 'new event:', event
                 event_id = "events:#{event.transactionHash}:#{event.logIndex}"
                 new_entities = {
-                    nodes: [{id: event_id, type: 'events', value: 10}]
+                    nodes: [{id: event_id, type: 'events', value: 7}]
                     links: [{source: event_id, target: event.transactionHash, value: 4}]
                 }
                 if !(event.transactionHash in MyDish.node_ids)

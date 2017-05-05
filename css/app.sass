@@ -41,6 +41,14 @@ body
 svg
     z-index: 200
 
+    circle
+        cursor: pointer
+        &:hover
+            stroke: rgba(170, 170, 170, 0.21)
+            stroke-width: 4px
+        &:active, &:focus
+            stroke: rgba(230, 230, 230, 0.26)
+
 .legend-entry
     display: flex
     flex-direction: row

@@ -17,7 +17,7 @@ Dish = class Dish
 
         @simulation = d3.forceSimulation()
             .force("link", d3.forceLink().id((d) -> return d.id))
-            .force("charge", d3.forceManyBody(1))
+            .force("charge", d3.forceManyBody().strength(-25))
             .force("center", d3.forceCenter(@width / 2, @height / 2))
 
         @dragstarted = dragstarted = (d) =>
