@@ -73,7 +73,8 @@ App = React.createClass
         Dispatcher.find 'transactions', {}, (err, transactions) =>
 
             MyDish = new Dish({nodes: [], links: []}, Dispatcher.clicks$, colors)
-            transactions ||= []
+            transactions ||= {}
+            transactions.items ||= []
             transactions.items.map (t) =>
                 pushTransaction t, MyDish    
             @setState {transactions}
