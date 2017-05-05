@@ -83,7 +83,7 @@ App = React.createClass
             # doSimulation(network)
 
             somata.subscribe 'eth-mirror:events', 'blocks', (event) ->
-                console.log 'new block:', event
+                # console.log 'new block:', event
                 Dispatcher.blocks$.emit event
                 new_entities = nodes: [{id: event.hash, type: 'blocks', value: 10}]
                 if event.parentHash in MyDish.node_ids
@@ -92,11 +92,11 @@ App = React.createClass
                 MyDish.pushEntities new_entities
 
             somata.subscribe 'eth-mirror:events', 'transactions', (event) ->
-                console.log 'new transaction:', event
+                # console.log 'new transaction:', event
                 pushTransaction event, MyDish
 
             somata.subscribe 'eth-mirror:events', 'events', (event) ->
-                console.log 'new event:', event
+                # console.log 'new event:', event
                 event_id = "events:#{event.transactionHash}:#{event.logIndex}"
                 new_entities = {
                     nodes: [{id: event_id, type: 'events', value: 10}]
